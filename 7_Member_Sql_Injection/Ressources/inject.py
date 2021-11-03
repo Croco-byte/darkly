@@ -1,7 +1,7 @@
 from cmd import Cmd
 import requests
 
-URL = "http://192.168.1.37/index.php?page=member"
+URL = "http://192.168.1.20/index.php?page=member"
 
 def find_needle(haystack, needle, n) :
     start = haystack.find(needle)

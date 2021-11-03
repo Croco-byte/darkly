@@ -9,7 +9,7 @@ if (len(sys.argv) != 2) :
 
 filename = sys.argv[1]
 
-def bruteforce_login(password, URL= "http://192.168.1.37/index.php?page=signin") :
+def bruteforce_login(password, URL= "http://192.168.1.20/index.php?page=signin") :
     password = password.rstrip()
 #    if (password == "shadow") :
 #        print("[*] Tried shadow")

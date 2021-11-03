@@ -1,6 +1,6 @@
 import requests
 
-URL = "http://192.168.1.37/.hidden/"
+URL = "http://192.168.1.20/.hidden/"
 
 r = requests.get(URL)
 for path in r.text.splitlines()[4:-3] :
